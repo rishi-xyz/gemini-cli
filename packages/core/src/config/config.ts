@@ -192,6 +192,14 @@ export interface GemmaModelRouterSettings {
   };
 }
 
+export interface FileOperationLimits {
+  maxFileSizeBytes: number;
+  maxLinesPerFile: number;
+  maxLineLength: number;
+  maxFilesToSearch: number;
+  maxShellOutputLines: number;
+}
+
 export interface ExtensionSetting {
   name: string;
   description: string;
@@ -352,6 +360,7 @@ import { DEFAULT_MAX_ATTEMPTS } from '../utils/retry.js';
 import type { FileFilteringOptions } from './constants.js';
 import {
   DEFAULT_FILE_FILTERING_OPTIONS,
+  DEFAULT_LIMITS,
   DEFAULT_MEMORY_FILE_FILTERING_OPTIONS,
 } from './constants.js';
 import {
@@ -565,6 +574,7 @@ export interface ConfigParameters {
   modelSteering?: boolean;
   onModelChange?: (model: string) => void;
   mcpEnabled?: boolean;
+  fileOperationLimits?: FileOperationLimits;
   extensionsEnabled?: boolean;
   agents?: AgentSettings;
   onReload?: () => Promise<{
@@ -593,6 +603,7 @@ export class Config {
   private fileSystemService: FileSystemService;
   private contentGeneratorConfig!: ContentGeneratorConfig;
   private contentGenerator!: ContentGenerator;
+  private readonly fileOperationLimits: FileOperationLimits;
   readonly modelConfigService: ModelConfigService;
   private readonly embeddingModel: string;
   private readonly sandbox: SandboxConfig | undefined;
@@ -897,6 +908,7 @@ export class Config {
     this.discoveryMaxDirs = params.discoveryMaxDirs ?? 200;
     this.compressionThreshold = params.compressionThreshold;
     this.interactive = params.interactive ?? false;
+    this.fileOperationLimits = params.fileOperationLimits ?? DEFAULT_LIMITS;
     this.ptyInfo = params.ptyInfo ?? 'child_process';
     this.trustedFolder = params.trustedFolder;
     this.directWebFetch = params.directWebFetch ?? false;
@@ -1882,6 +1894,10 @@ export class Config {
     | PolicyUpdateConfirmationRequest
     | undefined {
     return this.policyUpdateConfirmationRequest;
+  }
+
+  getFileOperationLimits(): FileOperationLimits {
+    return this.fileOperationLimits;
   }
 
   /**
