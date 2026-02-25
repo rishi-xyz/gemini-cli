@@ -1359,6 +1359,51 @@
           "markdownDescription": "Disable LLM-based error correction for edit tools. When enabled, tools will fail immediately if exact string matches are not found, instead of attempting to self-correct.\n\n- Category: `Tools`\n- Requires restart: `yes`\n- Default: `true`",
           "default": true,
           "type": "boolean"
+        },
+        "fileOperations": {
+          "title": "File Operations",
+          "description": "Limits for File Operations",
+          "markdownDescription": "Limits for File Operations\n\n- Category: `Tools`\n- Requires restart: `no`\n- Default: `{}`",
+          "default": {},
+          "type": "object",
+          "properties": {
+            "maxFileSizeBytes": {
+              "title": "Max File Size",
+              "description": "Maximum file size in bytes that can be read. Files exceeding this will be rejected.",
+              "markdownDescription": "Maximum file size in bytes that can be read. Files exceeding this will be rejected.\n\n- Category: `Tools`\n- Requires restart: `no`\n- Default: `20971520`",
+              "default": 20971520,
+              "type": "number"
+            },
+            "maxLinesPerFile": {
+              "title": "Max Lines Per File",
+              "description": "Maximun lines per file. Longer files are truncated.",
+              "markdownDescription": "Maximun lines per file. Longer files are truncated.\n\n- Category: `Tools`\n- Requires restart: `no`\n- Default: `2000`",
+              "default": 2000,
+              "type": "number"
+            },
+            "maxLineLength": {
+              "title": "Max Line Length",
+              "description": "Max characters per line. Longer lines are truncated.",
+              "markdownDescription": "Max characters per line. Longer lines are truncated.\n\n- Category: `Tools`\n- Requires restart: `no`\n- Default: `2000`",
+              "default": 2000,
+              "type": "number"
+            },
+            "maxFilesToSearch": {
+              "title": "Max Files To Search",
+              "description": "Max files to search.",
+              "markdownDescription": "Max files to search.\n\n- Category: `Tools`\n- Requires restart: `no`\n- Default: `20000`",
+              "default": 20000,
+              "type": "number"
+            },
+            "maxShellOutputLines": {
+              "title": "Max Shell Output Lines",
+              "description": "Max shell output lines captured.",
+              "markdownDescription": "Max shell output lines captured.\n\n- Category: `Tools`\n- Requires restart: `no`\n- Default: `2000`",
+              "default": 2000,
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false

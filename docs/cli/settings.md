@@ -104,13 +104,18 @@ they appear in the UI.
 
 ### Tools
 
-| UI Label                         | Setting                              | Description                                                                                                                                                                | Default |
-| -------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Enable Interactive Shell         | `tools.shell.enableInteractiveShell` | Use node-pty for an interactive shell experience. Fallback to child_process still applies.                                                                                 | `true`  |
-| Show Color                       | `tools.shell.showColor`              | Show color in shell output.                                                                                                                                                | `false` |
-| Use Ripgrep                      | `tools.useRipgrep`                   | Use ripgrep for file content search instead of the fallback implementation. Provides faster search performance.                                                            | `true`  |
-| Tool Output Truncation Threshold | `tools.truncateToolOutputThreshold`  | Maximum characters to show when truncating large tool outputs. Set to 0 or negative to disable truncation.                                                                 | `40000` |
-| Disable LLM Correction           | `tools.disableLLMCorrection`         | Disable LLM-based error correction for edit tools. When enabled, tools will fail immediately if exact string matches are not found, instead of attempting to self-correct. | `true`  |
+| UI Label                         | Setting                                    | Description                                                                                                                                                                | Default    |
+| -------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Enable Interactive Shell         | `tools.shell.enableInteractiveShell`       | Use node-pty for an interactive shell experience. Fallback to child_process still applies.                                                                                 | `true`     |
+| Show Color                       | `tools.shell.showColor`                    | Show color in shell output.                                                                                                                                                | `false`    |
+| Use Ripgrep                      | `tools.useRipgrep`                         | Use ripgrep for file content search instead of the fallback implementation. Provides faster search performance.                                                            | `true`     |
+| Tool Output Truncation Threshold | `tools.truncateToolOutputThreshold`        | Maximum characters to show when truncating large tool outputs. Set to 0 or negative to disable truncation.                                                                 | `40000`    |
+| Disable LLM Correction           | `tools.disableLLMCorrection`               | Disable LLM-based error correction for edit tools. When enabled, tools will fail immediately if exact string matches are not found, instead of attempting to self-correct. | `true`     |
+| Max File Size                    | `tools.fileOperations.maxFileSizeBytes`    | Maximum file size in bytes that can be read. Files exceeding this will be rejected.                                                                                        | `20971520` |
+| Max Lines Per File               | `tools.fileOperations.maxLinesPerFile`     | Maximun lines per file. Longer files are truncated.                                                                                                                        | `2000`     |
+| Max Line Length                  | `tools.fileOperations.maxLineLength`       | Max characters per line. Longer lines are truncated.                                                                                                                       | `2000`     |
+| Max Files To Search              | `tools.fileOperations.maxFilesToSearch`    | Max files to search.                                                                                                                                                       | `20000`    |
+| Max Shell Output Lines           | `tools.fileOperations.maxShellOutputLines` | Max shell output lines captured.                                                                                                                                           | `2000`     |
 
 ### Security
 

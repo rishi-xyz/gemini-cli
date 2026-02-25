@@ -816,6 +816,27 @@ their corresponding top-level category object in your `settings.json` file.
   - **Default:** `true`
   - **Requires restart:** Yes
 
+- **`tools.fileOperations.maxFileSizeBytes`** (number):
+  - **Description:** Maximum file size in bytes that can be read. Files
+    exceeding this will be rejected.
+  - **Default:** `20971520`
+
+- **`tools.fileOperations.maxLinesPerFile`** (number):
+  - **Description:** Maximun lines per file. Longer files are truncated.
+  - **Default:** `2000`
+
+- **`tools.fileOperations.maxLineLength`** (number):
+  - **Description:** Max characters per line. Longer lines are truncated.
+  - **Default:** `2000`
+
+- **`tools.fileOperations.maxFilesToSearch`** (number):
+  - **Description:** Max files to search.
+  - **Default:** `20000`
+
+- **`tools.fileOperations.maxShellOutputLines`** (number):
+  - **Description:** Max shell output lines captured.
+  - **Default:** `2000`
+
 #### `mcp`
 
 - **`mcp.serverCommand`** (string):
