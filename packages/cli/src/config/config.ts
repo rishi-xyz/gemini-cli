@@ -851,6 +851,16 @@ export async function loadCliConfig(
       settings.tools?.shell?.enableShellOutputEfficiency ?? true,
     skipNextSpeakerCheck: settings.model?.skipNextSpeakerCheck,
     truncateToolOutputThreshold: settings.tools?.truncateToolOutputThreshold,
+    fileOperationLimits: {
+      maxFileSizeBytes:
+        settings.tools?.fileOperations?.maxFileSizeBytes ?? 20971520,
+      maxLineLength: settings.tools?.fileOperations?.maxLineLength ?? 2000,
+      maxLinesPerFile: settings.tools?.fileOperations?.maxLinesPerFile ?? 2000,
+      maxFilesToSearch:
+        settings.tools?.fileOperations?.maxFilesToSearch ?? 20000,
+      maxShellOutputLines:
+        settings.tools?.fileOperations?.maxShellOutputLines ?? 2000,
+    },
     eventEmitter: coreEvents,
     useWriteTodos: argv.useWriteTodos ?? settings.useWriteTodos,
     output: {
