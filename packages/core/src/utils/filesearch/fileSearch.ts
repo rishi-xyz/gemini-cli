@@ -14,7 +14,7 @@ import type { FzfResultItem } from 'fzf';
 import { AsyncFzf } from 'fzf';
 import { unescapePath } from '../paths.js';
 import type { FileDiscoveryService } from '../../services/fileDiscoveryService.js';
-import { DEFAULT_LIMITS } from 'src/config/constants.js';
+import { DEFAULT_LIMITS } from '../../config/constants.js';
 
 export interface FileSearchOptions {
   projectRoot: string;

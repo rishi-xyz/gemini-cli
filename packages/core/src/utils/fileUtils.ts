@@ -15,7 +15,7 @@ import { ToolErrorType } from '../tools/tool-error.js';
 import { BINARY_EXTENSIONS } from './ignorePatterns.js';
 import { createRequire as createModuleRequire } from 'node:module';
 import { debugLogger } from './debugLogger.js';
-import { DEFAULT_LIMITS } from 'src/config/constants.js';
+import { DEFAULT_LIMITS } from '../config/constants.js';
 
 const requireModule = createModuleRequire(import.meta.url);
 
