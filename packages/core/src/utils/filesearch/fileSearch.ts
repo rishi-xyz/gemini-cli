@@ -14,6 +14,7 @@ import type { FzfResultItem } from 'fzf';
 import { AsyncFzf } from 'fzf';
 import { unescapePath } from '../paths.js';
 import type { FileDiscoveryService } from '../../services/fileDiscoveryService.js';
+import { DEFAULT_LIMITS } from 'src/config/constants.js';
 
 export interface FileSearchOptions {
   projectRoot: string;
@@ -193,7 +194,8 @@ class RecursiveFileSearch implements FileSearch {
       // occurrence of the pattern. We use it for search spaces that have >20k
       // files, because the v2 algorithm is just too slow in those cases.
       this.fzf = new AsyncFzf(this.allFiles, {
-        fuzzy: this.allFiles.length > 20000 ? 'v1' : 'v2',
+        fuzzy:
+          this.allFiles.length > DEFAULT_LIMITS.maxFilesToSearch ? 'v1' : 'v2',
       });
     }
   }

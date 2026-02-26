@@ -12,27 +12,6 @@ export interface FileFilteringOptions {
   customIgnoreFilePaths: string[];
 }
 
-// For memory files
-export const DEFAULT_MEMORY_FILE_FILTERING_OPTIONS: FileFilteringOptions = {
-  respectGitIgnore: false,
-  respectGeminiIgnore: true,
-  maxFileCount: 20000,
-  searchTimeout: 5000,
-  customIgnoreFilePaths: [],
-};
-
-// For all other files
-export const DEFAULT_FILE_FILTERING_OPTIONS: FileFilteringOptions = {
-  respectGitIgnore: true,
-  respectGeminiIgnore: true,
-  maxFileCount: 20000,
-  searchTimeout: 5000,
-  customIgnoreFilePaths: [],
-};
-
-// Generic exclusion file name
-export const GEMINI_IGNORE_FILE_NAME = '.geminiignore';
-
 // File operations default limits
 export const DEFAULT_LIMITS = {
   maxFileSizeBytes: 20 * 1024 * 1024,
@@ -50,3 +29,24 @@ export const MAX_LIMITS = {
   maxFilesToSearch: 100000,
   maxShellOutputLines: 50000,
 } as const;
+
+// For memory files
+export const DEFAULT_MEMORY_FILE_FILTERING_OPTIONS: FileFilteringOptions = {
+  respectGitIgnore: false,
+  respectGeminiIgnore: true,
+  maxFileCount: DEFAULT_LIMITS.maxFilesToSearch,
+  searchTimeout: 5000,
+  customIgnoreFilePaths: [],
+};
+
+// For all other files
+export const DEFAULT_FILE_FILTERING_OPTIONS: FileFilteringOptions = {
+  respectGitIgnore: true,
+  respectGeminiIgnore: true,
+  maxFileCount: DEFAULT_LIMITS.maxFilesToSearch,
+  searchTimeout: 5000,
+  customIgnoreFilePaths: [],
+};
+
+// Generic exclusion file name
+export const GEMINI_IGNORE_FILE_NAME = '.geminiignore';

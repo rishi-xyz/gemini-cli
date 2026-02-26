@@ -923,6 +923,7 @@ export class Config {
       showColor: params.shellExecutionConfig?.showColor ?? false,
       pager: params.shellExecutionConfig?.pager ?? 'cat',
       sanitizationConfig: this.sanitizationConfig,
+      maxSerializedLines: this.fileOperationLimits.maxShellOutputLines,
     };
     this.truncateToolOutputThreshold =
       params.truncateToolOutputThreshold ??
